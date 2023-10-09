@@ -8,7 +8,9 @@ dotenv.config({path:'./config.env'})
 const app = express();
 const PORT = process.env.PORT;
 
-
+app.get('/',(req,res)=>{
+    res.send("hello")
+})
 //The express. json() function is a middleware function used in Express.
 // js applications to parse incoming JSON data from HTTP requests,
 // a standard format for data transmission in web servers.
