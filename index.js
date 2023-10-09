@@ -4,7 +4,7 @@ const express = require('express')
 connectMongo();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 dotenv.config({path:'./config.env'})
 //The express. json() function is a middleware function used in Express.
@@ -16,9 +16,6 @@ app.use(express.json())
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 
-if (process.env.NODE_ENV == "production") {
-    app.use(express.static("client/build"))
-}
 
 app.listen(PORT, () => {
     console.log(`iNotebook backend  started at port ${PORT}`)
